@@ -5,6 +5,7 @@ import matplotlib.animation as animation
 
 class SuperPosition:
     def __init__(self):
+        # wave parameters
         self.c = 3e8
         self.landa1 = 5
         self.landa2 = 5.5
@@ -18,6 +19,7 @@ class SuperPosition:
         self.Omega = self.vg * self.Wave_Num
 
     def info(self):
+        # wave setting
         self.x_space = np.linspace(-50 , 50 , 500)
         self.t_space = np.linspace(0 , 1e-8 , 100)
 
@@ -31,7 +33,7 @@ class SuperPosition:
         self.pac_wave, = self.ax.plot([], [], color='g', label="wave_packet")
         self.ax.legend()
 
-
+        # create moving wave
         def moving(t):
             y1 = self.domain * np.cos(self.wave_num1 * self.x_space - self.omega1 * t)
             y2 = self.domain * np.cos(self.wave_num2 * self.x_space - self.omega2 * t + np.pi / 3)
